@@ -7,70 +7,86 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CA11100E1ABB16560007758E /* DoublesMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = CA11100D1ABB16560007758E /* DoublesMatrix.m */; };
-		CA547E001ABF319800E10ECC /* PolynomialRegression.m in Sources */ = {isa = PBXBuildFile; fileRef = CA547DFF1ABF319800E10ECC /* PolynomialRegression.m */; };
-		CA8020101AB9B747007CDF96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA80200F1AB9B747007CDF96 /* main.m */; };
-		CA8020131AB9B747007CDF96 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8020121AB9B747007CDF96 /* AppDelegate.m */; };
-		CA8020161AB9B747007CDF96 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8020151AB9B747007CDF96 /* ViewController.m */; };
-		CA8020191AB9B747007CDF96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8020171AB9B747007CDF96 /* Main.storyboard */; };
-		CA80201B1AB9B747007CDF96 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA80201A1AB9B747007CDF96 /* Images.xcassets */; };
-		CA80201E1AB9B747007CDF96 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA80201C1AB9B747007CDF96 /* LaunchScreen.xib */; };
-		CA80202A1AB9B747007CDF96 /* PolynomialRegressionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8020291AB9B747007CDF96 /* PolynomialRegressionTests.m */; };
+		59E2824825FE7256004397FB /* PolynomialRegression.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E2823F25FE7255004397FB /* PolynomialRegression.framework */; };
+		59E2824D25FE7256004397FB /* PolynomialRegressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E2824C25FE7256004397FB /* PolynomialRegressionTests.swift */; };
+		59E2824F25FE7256004397FB /* PolynomialRegression.h in Headers */ = {isa = PBXBuildFile; fileRef = 59E2824125FE7255004397FB /* PolynomialRegression.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		59E2825825FE7263004397FB /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E281E525FE58AD004397FB /* Matrix.swift */; };
+		59E2825B25FE7265004397FB /* PolynomialRegression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E281E925FE58BD004397FB /* PolynomialRegression.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CA8020241AB9B747007CDF96 /* PBXContainerItemProxy */ = {
+		59E2824925FE7256004397FB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CA8020021AB9B746007CDF96 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = CA8020091AB9B746007CDF96;
+			remoteGlobalIDString = 59E2823E25FE7255004397FB;
 			remoteInfo = PolynomialRegression;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CA11100C1ABB16560007758E /* DoublesMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DoublesMatrix.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		CA11100D1ABB16560007758E /* DoublesMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DoublesMatrix.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		CA547DFF1ABF319800E10ECC /* PolynomialRegression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PolynomialRegression.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		CA547E011ABF31A700E10ECC /* PolynomialRegression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolynomialRegression.h; sourceTree = "<group>"; };
-		CA80200A1AB9B747007CDF96 /* PolynomialRegression.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PolynomialRegression.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA80200E1AB9B747007CDF96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CA80200F1AB9B747007CDF96 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CA8020111AB9B747007CDF96 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		CA8020121AB9B747007CDF96 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CA8020141AB9B747007CDF96 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CA8020151AB9B747007CDF96 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		CA8020181AB9B747007CDF96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CA80201A1AB9B747007CDF96 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		CA80201D1AB9B747007CDF96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		CA8020231AB9B747007CDF96 /* PolynomialRegressionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PolynomialRegressionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA8020281AB9B747007CDF96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CA8020291AB9B747007CDF96 /* PolynomialRegressionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PolynomialRegressionTests.m; sourceTree = "<group>"; };
+		59E281E525FE58AD004397FB /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		59E281E925FE58BD004397FB /* PolynomialRegression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialRegression.swift; sourceTree = "<group>"; };
+		59E2823F25FE7255004397FB /* PolynomialRegression.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PolynomialRegression.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59E2824125FE7255004397FB /* PolynomialRegression.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PolynomialRegression.h; sourceTree = "<group>"; };
+		59E2824225FE7255004397FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59E2824725FE7256004397FB /* PolynomialRegressionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PolynomialRegressionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		59E2824C25FE7256004397FB /* PolynomialRegressionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialRegressionTests.swift; sourceTree = "<group>"; };
+		59E2824E25FE7256004397FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CA8020071AB9B746007CDF96 /* Frameworks */ = {
+		59E2823C25FE7255004397FB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CA8020201AB9B747007CDF96 /* Frameworks */ = {
+		59E2824425FE7256004397FB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59E2824825FE7256004397FB /* PolynomialRegression.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		59E281E425FE588F004397FB /* PolynomialRegressionSwift */ = {
+			isa = PBXGroup;
+			children = (
+				59E281E525FE58AD004397FB /* Matrix.swift */,
+				59E281E925FE58BD004397FB /* PolynomialRegression.swift */,
+			);
+			path = PolynomialRegressionSwift;
+			sourceTree = "<group>";
+		};
+		59E2824025FE7255004397FB /* PolynomialRegression */ = {
+			isa = PBXGroup;
+			children = (
+				59E2824125FE7255004397FB /* PolynomialRegression.h */,
+				59E2824225FE7255004397FB /* Info.plist */,
+			);
+			path = PolynomialRegression;
+			sourceTree = "<group>";
+		};
+		59E2824B25FE7256004397FB /* PolynomialRegressionTests */ = {
+			isa = PBXGroup;
+			children = (
+				59E2824C25FE7256004397FB /* PolynomialRegressionTests.swift */,
+				59E2824E25FE7256004397FB /* Info.plist */,
+			);
+			path = PolynomialRegressionTests;
+			sourceTree = "<group>";
+		};
 		CA8020011AB9B746007CDF96 = {
 			isa = PBXGroup;
 			children = (
-				CA80200C1AB9B747007CDF96 /* PolynomialRegression */,
-				CA8020261AB9B747007CDF96 /* PolynomialRegressionTests */,
+				59E281E425FE588F004397FB /* PolynomialRegressionSwift */,
+				59E2824025FE7255004397FB /* PolynomialRegression */,
+				59E2824B25FE7256004397FB /* PolynomialRegressionTests */,
 				CA80200B1AB9B747007CDF96 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,67 +94,34 @@
 		CA80200B1AB9B747007CDF96 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CA80200A1AB9B747007CDF96 /* PolynomialRegression.app */,
-				CA8020231AB9B747007CDF96 /* PolynomialRegressionTests.xctest */,
+				59E2823F25FE7255004397FB /* PolynomialRegression.framework */,
+				59E2824725FE7256004397FB /* PolynomialRegressionTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CA80200C1AB9B747007CDF96 /* PolynomialRegression */ = {
-			isa = PBXGroup;
-			children = (
-				CA8020111AB9B747007CDF96 /* AppDelegate.h */,
-				CA8020121AB9B747007CDF96 /* AppDelegate.m */,
-				CA8020141AB9B747007CDF96 /* ViewController.h */,
-				CA8020151AB9B747007CDF96 /* ViewController.m */,
-				CA8020171AB9B747007CDF96 /* Main.storyboard */,
-				CA80201A1AB9B747007CDF96 /* Images.xcassets */,
-				CA80201C1AB9B747007CDF96 /* LaunchScreen.xib */,
-				CA80200D1AB9B747007CDF96 /* Supporting Files */,
-				CA11100C1ABB16560007758E /* DoublesMatrix.h */,
-				CA11100D1ABB16560007758E /* DoublesMatrix.m */,
-				CA547E011ABF31A700E10ECC /* PolynomialRegression.h */,
-				CA547DFF1ABF319800E10ECC /* PolynomialRegression.m */,
-			);
-			path = PolynomialRegression;
-			sourceTree = "<group>";
-		};
-		CA80200D1AB9B747007CDF96 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				CA80200E1AB9B747007CDF96 /* Info.plist */,
-				CA80200F1AB9B747007CDF96 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		CA8020261AB9B747007CDF96 /* PolynomialRegressionTests */ = {
-			isa = PBXGroup;
-			children = (
-				CA8020291AB9B747007CDF96 /* PolynomialRegressionTests.m */,
-				CA8020271AB9B747007CDF96 /* Supporting Files */,
-			);
-			path = PolynomialRegressionTests;
-			sourceTree = "<group>";
-		};
-		CA8020271AB9B747007CDF96 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				CA8020281AB9B747007CDF96 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		59E2823A25FE7255004397FB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59E2824F25FE7256004397FB /* PolynomialRegression.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		CA8020091AB9B746007CDF96 /* PolynomialRegression */ = {
+		59E2823E25FE7255004397FB /* PolynomialRegression */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CA80202D1AB9B748007CDF96 /* Build configuration list for PBXNativeTarget "PolynomialRegression" */;
+			buildConfigurationList = 59E2825025FE7256004397FB /* Build configuration list for PBXNativeTarget "PolynomialRegression" */;
 			buildPhases = (
-				CA8020061AB9B746007CDF96 /* Sources */,
-				CA8020071AB9B746007CDF96 /* Frameworks */,
-				CA8020081AB9B746007CDF96 /* Resources */,
+				59E2823A25FE7255004397FB /* Headers */,
+				59E2823B25FE7255004397FB /* Sources */,
+				59E2823C25FE7255004397FB /* Frameworks */,
+				59E2823D25FE7255004397FB /* Resources */,
 			);
 			buildRules = (
 			);
@@ -146,25 +129,25 @@
 			);
 			name = PolynomialRegression;
 			productName = PolynomialRegression;
-			productReference = CA80200A1AB9B747007CDF96 /* PolynomialRegression.app */;
-			productType = "com.apple.product-type.application";
+			productReference = 59E2823F25FE7255004397FB /* PolynomialRegression.framework */;
+			productType = "com.apple.product-type.framework";
 		};
-		CA8020221AB9B747007CDF96 /* PolynomialRegressionTests */ = {
+		59E2824625FE7256004397FB /* PolynomialRegressionTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CA8020301AB9B748007CDF96 /* Build configuration list for PBXNativeTarget "PolynomialRegressionTests" */;
+			buildConfigurationList = 59E2825325FE7256004397FB /* Build configuration list for PBXNativeTarget "PolynomialRegressionTests" */;
 			buildPhases = (
-				CA80201F1AB9B747007CDF96 /* Sources */,
-				CA8020201AB9B747007CDF96 /* Frameworks */,
-				CA8020211AB9B747007CDF96 /* Resources */,
+				59E2824325FE7256004397FB /* Sources */,
+				59E2824425FE7256004397FB /* Frameworks */,
+				59E2824525FE7256004397FB /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CA8020251AB9B747007CDF96 /* PBXTargetDependency */,
+				59E2824A25FE7256004397FB /* PBXTargetDependency */,
 			);
 			name = PolynomialRegressionTests;
 			productName = PolynomialRegressionTests;
-			productReference = CA8020231AB9B747007CDF96 /* PolynomialRegressionTests.xctest */;
+			productReference = 59E2824725FE7256004397FB /* PolynomialRegressionTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -173,15 +156,19 @@
 		CA8020021AB9B746007CDF96 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "Gilles Lesire";
 				TargetAttributes = {
-					CA8020091AB9B746007CDF96 = {
-						CreatedOnToolsVersion = 6.2;
+					59E2823E25FE7255004397FB = {
+						CreatedOnToolsVersion = 12.4;
+						DevelopmentTeam = 88733KWN97;
+						ProvisioningStyle = Automatic;
 					};
-					CA8020221AB9B747007CDF96 = {
-						CreatedOnToolsVersion = 6.2;
-						TestTargetID = CA8020091AB9B746007CDF96;
+					59E2824625FE7256004397FB = {
+						CreatedOnToolsVersion = 12.4;
+						DevelopmentTeam = 88733KWN97;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -190,6 +177,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -198,24 +186,21 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CA8020091AB9B746007CDF96 /* PolynomialRegression */,
-				CA8020221AB9B747007CDF96 /* PolynomialRegressionTests */,
+				59E2823E25FE7255004397FB /* PolynomialRegression */,
+				59E2824625FE7256004397FB /* PolynomialRegressionTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CA8020081AB9B746007CDF96 /* Resources */ = {
+		59E2823D25FE7255004397FB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA8020191AB9B747007CDF96 /* Main.storyboard in Resources */,
-				CA80201E1AB9B747007CDF96 /* LaunchScreen.xib in Resources */,
-				CA80201B1AB9B747007CDF96 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CA8020211AB9B747007CDF96 /* Resources */ = {
+		59E2824525FE7256004397FB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -225,56 +210,212 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CA8020061AB9B746007CDF96 /* Sources */ = {
+		59E2823B25FE7255004397FB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA11100E1ABB16560007758E /* DoublesMatrix.m in Sources */,
-				CA8020161AB9B747007CDF96 /* ViewController.m in Sources */,
-				CA8020131AB9B747007CDF96 /* AppDelegate.m in Sources */,
-				CA547E001ABF319800E10ECC /* PolynomialRegression.m in Sources */,
-				CA8020101AB9B747007CDF96 /* main.m in Sources */,
+				59E2825B25FE7265004397FB /* PolynomialRegression.swift in Sources */,
+				59E2825825FE7263004397FB /* Matrix.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CA80201F1AB9B747007CDF96 /* Sources */ = {
+		59E2824325FE7256004397FB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA80202A1AB9B747007CDF96 /* PolynomialRegressionTests.m in Sources */,
+				59E2824D25FE7256004397FB /* PolynomialRegressionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		CA8020251AB9B747007CDF96 /* PBXTargetDependency */ = {
+		59E2824A25FE7256004397FB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CA8020091AB9B746007CDF96 /* PolynomialRegression */;
-			targetProxy = CA8020241AB9B747007CDF96 /* PBXContainerItemProxy */;
+			target = 59E2823E25FE7255004397FB /* PolynomialRegression */;
+			targetProxy = 59E2824925FE7256004397FB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		CA8020171AB9B747007CDF96 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CA8020181AB9B747007CDF96 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		CA80201C1AB9B747007CDF96 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CA80201D1AB9B747007CDF96 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
+		59E2825125FE7256004397FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 88733KWN97;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = PolynomialRegression/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pascalburlet.PolynomialRegression;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		59E2825225FE7256004397FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 88733KWN97;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = PolynomialRegression/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pascalburlet.PolynomialRegression;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		59E2825425FE7256004397FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 88733KWN97;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = PolynomialRegressionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pascalburlet.PolynomialRegressionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		59E2825525FE7256004397FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 88733KWN97;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = PolynomialRegressionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pascalburlet.PolynomialRegressionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		CA80202B1AB9B748007CDF96 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -309,7 +450,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -345,7 +487,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -353,88 +496,32 @@
 			};
 			name = Release;
 		};
-		CA80202E1AB9B748007CDF96 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = PolynomialRegression/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		CA80202F1AB9B748007CDF96 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = PolynomialRegression/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		CA8020311AB9B748007CDF96 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = PolynomialRegressionTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PolynomialRegression.app/PolynomialRegression";
-			};
-			name = Debug;
-		};
-		CA8020321AB9B748007CDF96 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = PolynomialRegressionTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PolynomialRegression.app/PolynomialRegression";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		59E2825025FE7256004397FB /* Build configuration list for PBXNativeTarget "PolynomialRegression" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59E2825125FE7256004397FB /* Debug */,
+				59E2825225FE7256004397FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		59E2825325FE7256004397FB /* Build configuration list for PBXNativeTarget "PolynomialRegressionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59E2825425FE7256004397FB /* Debug */,
+				59E2825525FE7256004397FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CA8020051AB9B746007CDF96 /* Build configuration list for PBXProject "PolynomialRegression" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA80202B1AB9B748007CDF96 /* Debug */,
 				CA80202C1AB9B748007CDF96 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CA80202D1AB9B748007CDF96 /* Build configuration list for PBXNativeTarget "PolynomialRegression" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CA80202E1AB9B748007CDF96 /* Debug */,
-				CA80202F1AB9B748007CDF96 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CA8020301AB9B748007CDF96 /* Build configuration list for PBXNativeTarget "PolynomialRegressionTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CA8020311AB9B748007CDF96 /* Debug */,
-				CA8020321AB9B748007CDF96 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
