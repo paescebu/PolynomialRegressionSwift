@@ -1,18 +1,14 @@
 # iOS-Polynomial-Regression
-Objective-C function for calculation the polynomial regression of a given dataset.
+Swift function for calculation the polynomial regression of a given dataset.
 
-There are no mathematical data analysis functions in Objective-C and I couldn't find a suitable math framework for this task. For my thesis I require a function to calculate the polynomial regression of a give data set. Since this function didn't exist I had to write it myself. Problem was that other programming languages usually have this implemented by default as some kind of "polyfit" function so I dind't really had an example to base myself on.
+This is a fork of the https://github.com/KingIsulgard/iOS-Polynomial-Regression repository, just converted to Swift.
 
-So I had to go into the math and figure out how to turn it into an algorithm. A hellish job I wouldn't recommend to anyone. I programmed an Objective-C function for the calculation the polynomial regression of a given dataset which is extremely easy to use.
-
-You have to give an array of NSNumber for the x values and y values and the desired degree of polynomial you would like to aquire. The function will return an NSMutableArray containing the polynomial constants. 
+You have to give an array of Double for the x values and y values and the desired order of polynomial you would like to aquire. The function will return an Array containing the polynomial coefficients. 
 
 ## Overview
 * [Features](#features)
 * [Example](#example)
 * [Implementation](#implementation)
-* [Donation](#donate)
-* [License](#license)
 * [Warranty](#warranty)
 
 ## Features
@@ -23,65 +19,53 @@ You have to give an array of NSNumber for the x values and y values and the desi
 
 ## Example
 
-    NSMutableArray *x = [[NSMutableArray alloc] init];
-    [x addObject: [NSNumber numberWithDouble: 0]];
-    [x addObject: [NSNumber numberWithDouble: 9]];
-    [x addObject: [NSNumber numberWithDouble: 13]];
-    [x addObject: [NSNumber numberWithDouble: 15]];
-    [x addObject: [NSNumber numberWithDouble: 19]];
-    [x addObject: [NSNumber numberWithDouble: 20]];
-    [x addObject: [NSNumber numberWithDouble: 26]];
-    [x addObject: [NSNumber numberWithDouble: 26]];
-    [x addObject: [NSNumber numberWithDouble: 29]];
-    [x addObject: [NSNumber numberWithDouble: 30]];
-    
-    NSMutableArray *y = [[NSMutableArray alloc] init];
-    
-    [y addObject: [NSNumber numberWithDouble: 1]];
-    [y addObject: [NSNumber numberWithDouble: -7]];
-    [y addObject: [NSNumber numberWithDouble: 6]];
-    [y addObject: [NSNumber numberWithDouble: 12]];
-    [y addObject: [NSNumber numberWithDouble: -4]];
-    [y addObject: [NSNumber numberWithDouble: -12]];
-    [y addObject: [NSNumber numberWithDouble: -2]];
-    [y addObject: [NSNumber numberWithDouble: 13]];
-    [y addObject: [NSNumber numberWithDouble: 23]];
-    [y addObject: [NSNumber numberWithDouble: 30]];
-    
-    int degree = 6;
-    NSMutableArray *regression = [PolynomialRegression regressionWithXValues: x AndYValues: y PolynomialDegree: degree];
-    
-    NSLog(@"The result is the sum of");
-    
-    for(int i = 0; i < [regression count]; i++) {
-        double value = [[regression objectAtIndex: i] doubleValue];
-        NSLog(@"%f * x^%d", value, i);
+    let xValues:[Double] = [
+        0,
+        9,
+        13,
+        15,
+        19,
+        20,
+        26,
+        26,
+        29,
+        30
+    ]
+    let yValues:[Double] = [
+        1,
+        -7,
+        6,
+        12,
+        -4,
+        -12,
+        -2,
+        13,
+        23,
+        30
+    ]
+
+    let regression = PolynomialRegression.regression(withXValues: xValues, yValues: yValues, degree: 6)
+
+    print("The result is the sum of")
+    for i in 0..<regression!.count {
+        let coefficient = regression![i]
+        print("\(coefficient) * x^\(i)");
     }
 
 Generates the following output in console
 ```
-2015-03-22 19:52:48.751 PolynomialRegression[2701:111554] The result is the sum of
-2015-03-22 19:52:48.752 PolynomialRegression[2701:111554] 1.011300 * x^0
-2015-03-22 19:52:48.752 PolynomialRegression[2701:111554] -23.964676 * x^1
-2015-03-22 19:52:48.752 PolynomialRegression[2701:111554] 4.546635 * x^2
-2015-03-22 19:52:48.752 PolynomialRegression[2701:111554] -0.236831 * x^3
-2015-03-22 19:52:48.752 PolynomialRegression[2701:111554] -0.000581 * x^4
-2015-03-22 19:52:48.753 PolynomialRegression[2701:111554] 0.000309 * x^5
-2015-03-22 19:52:48.753 PolynomialRegression[2701:111554] -0.000005 * x^6
+The result is the sum of
+1.011300320206601 * x^0
+-23.964675682766202 * x^1
+4.546635485744847 * x^2
+-0.23683080116609886 * x^3
+-0.0005811674529158227 * x^4
+0.0003090669456971004 * x^5
+-5.474209344783135e-06 * x^6
 ```
 
 ## Implementation
-Implementation is easy. Just add the classes to your project and import the PolynomialRegression.h file.
-
-## Donate
-You can support [contributors](https://github.com/KingIsulgard/iOS-Polynomial-Regression/graphs/contributors) of this project individually. Every contributor is welcomed to add his/her line below with any content. Ordering shall be alphabetically by GitHub username.
-
-Please consider a small donation if you use iOS Polynomial Regression in your projects. It would make me really happy.
-
-* [@KingIsulgard](https://github.com/KingIsulgard): <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HQE64D8RQGPLC"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="[paypal]" /></a> !
-
-## License
-The license for the code is GPL.
+Implementation is easy. Just add the classes to your project and import 'PolynomialRegression'.
 
 You're welcome to use it in commercial, closed-source, open source, free or any other kind of software, as long as you credit me appropriately and share any improvements to the code.
 
