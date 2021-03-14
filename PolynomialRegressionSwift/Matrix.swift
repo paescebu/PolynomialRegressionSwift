@@ -68,7 +68,11 @@ public struct Matrix<T:Numeric> {
         if m >= rows || n >= columns {
             expand(toRows: m + 1, columns: n + 1)
         }
-        values[m][n] = value
+        if n == values[m].count {
+            values[m].append(value)
+        } else {
+            values[m][n] = value
+        }
     }
     
     /**

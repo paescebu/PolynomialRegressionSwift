@@ -16,24 +16,24 @@ public class PolynomialRegression {
         guard xVals.count == yVals.count else {
             return nil
         }
-        var Z = Matrix<Double>(rows: xVals.count, columns: degree+1)
+        var z = Matrix<Double>(rows: xVals.count, columns: degree+1)
         
         for i in 0..<xVals.count {
             for j in 0...degree {
                 let val = pow(xVals[i], Double(j))
-                Z.setValue(atRow: i, andColumn: j, value: val)
+                z.setValue(atRow: i, andColumn: j, value: val)
             }
         }
         
-        var Y = Matrix<Double>(rows: yVals.count, columns: 1)
+        var y = Matrix<Double>(rows: yVals.count, columns: 1)
 
         for u in 0..<yVals.count {
-            Y.setValue(atRow: u, andColumn: 0, value: yVals[u])
+            y.setValue(atRow: u, andColumn: 0, value: yVals[u])
         }
 
-        let ZTransposed = Z.transpose()
-        let l = ZTransposed * Z
-        let r = ZTransposed * Y
+        let zTransposed = z.transpose()
+        let l = zTransposed * z
+        let r = zTransposed * y
 
         var regression = solve(forleftMatrix: l, andrightMatrix: r)
         var result: [Double] = []
