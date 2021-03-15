@@ -25,9 +25,8 @@ jobs:
     steps:
     - name: Checkout repo with submodules
       uses: actions/checkout@v2
-    - name: Build and test PolynomialRegressionSwift Test Suite
+    - name: Build and test PolynomialRegression Test Suite
       run: |
-          cd PolynomialRegressionSwift
           cd PolynomialRegressionSwift
           arch -arm64 /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild clean test -project PolynomialRegression.xcodeproj -scheme PolynomialRegression -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
       env:
