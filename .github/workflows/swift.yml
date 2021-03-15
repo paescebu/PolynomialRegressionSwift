@@ -1,0 +1,33 @@
+name: Swift
+
+on:
+  #schedule:
+  #  - cron:  '0 0 * * *'
+  push:
+    branches:
+      - master
+      - develop
+      - feature/*
+
+  pull_request:
+    branches:
+      - master
+      - develop
+      - feature/*
+
+jobs:
+  test:
+    name: Complete Test Suite
+    runs-on: self-hosted
+    strategy:
+      matrix:
+        destination: ['platform=macOS,arch=x86_64']
+    steps:
+    - name: Checkout repo with submodules
+      uses: actions/checkout@v2
+    - name: Build and test PolynomialRegressionSwift Test Suite
+      run: |
+          cd AVWXSwift
+          arch -arm64 /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild clean test -project PolynomialRegression.xcodeproj -scheme PolynomialRegression -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+      env:
+        destination: ${{ matrix.destination }}
