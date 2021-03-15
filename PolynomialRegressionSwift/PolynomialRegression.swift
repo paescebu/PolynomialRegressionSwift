@@ -8,27 +8,30 @@
 
 import Foundation
 
+
 public class PolynomialRegression {
-    public static func regression(withXValues xVals: [Double], yValues yVals: [Double], degree: Int) -> [Double]? {
+    public static func regression(withPoints points: [CGPoint], degree: Int) -> [Double]? {
         guard degree > 0 else {
             return nil
         }
-        guard xVals.count == yVals.count else {
+        
+        guard points.count > 1 else {
             return nil
         }
-        var z = Matrix<Double>(rows: xVals.count, columns: degree+1)
+
+        var z = Matrix<Double>(rows: points.count, columns: degree+1)
         
-        for i in 0..<xVals.count {
+        for i in 0..<points.count {
             for j in 0...degree {
-                let val = pow(xVals[i], Double(j))
+                let val = pow(Double(points[i].x), Double(j))
                 z.setValue(atRow: i, andColumn: j, value: val)
             }
         }
         
-        var y = Matrix<Double>(rows: yVals.count, columns: 1)
+        var y = Matrix<Double>(rows: points.count, columns: 1)
 
-        for u in 0..<yVals.count {
-            y.setValue(atRow: u, andColumn: 0, value: yVals[u])
+        for u in 0..<points.count {
+            y.setValue(atRow: u, andColumn: 0, value: Double(points[u].y))
         }
 
         let zTransposed = z.transpose()

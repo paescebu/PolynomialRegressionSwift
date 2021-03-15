@@ -11,24 +11,78 @@ import XCTest
 
 class PolynomialRegressionTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    let points:[CGPoint] = [
+        CGPoint(x: 0, y: 1),
+        CGPoint(x: 9, y: -7),
+        CGPoint(x: 13, y: 6),
+        CGPoint(x: 15, y: 12),
+        CGPoint(x: 19, y: -4),
+        CGPoint(x: 20, y: -12),
+        CGPoint(x: 26, y: -2),
+        CGPoint(x: 26, y: 13),
+        CGPoint(x: 29, y: 23),
+        CGPoint(x: 30, y: 30),
+    ]
+    
+    func testPolynomial6thtOrder() {
+        let regression = PolynomialRegression.regression(withPoints: points, degree: 6)
+        XCTAssertEqual(regression![0], 1.011300320206601)
+        XCTAssertEqual(regression![1], -23.964675682766202)
+        XCTAssertEqual(regression![2], 4.546635485744847)
+        XCTAssertEqual(regression![3], -0.23683080116609886)
+        XCTAssertEqual(regression![4], -0.0005811674529158227)
+        XCTAssertEqual(regression![5], 0.0003090669456971004)
+        XCTAssertEqual(regression![6], -5.474209344783135e-06)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testPolynomial5thtOrder() {
+        let regression = PolynomialRegression.regression(withPoints: points, degree: 5)
+        XCTAssertEqual(regression![0], 1.0177157900097882)
+        XCTAssertEqual(regression![1], -34.97213277818397)
+        XCTAssertEqual(regression![2], 7.869886186817316)
+        XCTAssertEqual(regression![3], -0.6172300630385494)
+        XCTAssertEqual(regression![4], 0.020177068661343254)
+        XCTAssertEqual(regression![5], -0.00023390776561177477)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testPolynomial4thtOrder() {
+        let regression = PolynomialRegression.regression(withPoints: points, degree: 4)
+        XCTAssertEqual(regression![0], 0.5188252688664079)
+        XCTAssertEqual(regression![1], -5.00435070223329)
+        XCTAssertEqual(regression![2], 0.9467886142433064)
+        XCTAssertEqual(regression![3], -0.05579815612821298)
+        XCTAssertEqual(regression![4], 0.00103355309271587)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testPolynomial3rdOrder() {
+        let regression = PolynomialRegression.regression(withPoints: points, degree: 3)
+        XCTAssertEqual(regression![0], -0.8118189454820595)
+        XCTAssertEqual(regression![1], 2.9309485689169064)
+        XCTAssertEqual(regression![2], -0.33216611492168935)
+        XCTAssertEqual(regression![3], 0.00889479130707563)
     }
+    
+    func testPolynomial2ndOrderQuadratic() {
+        let regression = PolynomialRegression.regression(withPoints: points, degree: 2)
+        XCTAssertEqual(regression![0], 3.975868294909997)
+        XCTAssertEqual(regression![1], -1.499637161945378)
+        XCTAssertEqual(regression![2], 0.06945564017895259)
+    }
+    
+    func testPolynomial1stOrderLinear() {
+        let regression = PolynomialRegression.regression(withPoints: points, degree: 1)
+        XCTAssertEqual(regression![0], -7.708688859512078)
+        XCTAssertEqual(regression![1], 0.733084965749309)
+    }
+    
+    func testPolynomialRegressionFails() {
+        var regression = PolynomialRegression.regression(withPoints: points, degree: 0)
+        XCTAssertEqual(regression, nil)
+        
+        regression = PolynomialRegression.regression(withPoints: [], degree: 1)
+        XCTAssertEqual(regression, nil)
 
+        regression = PolynomialRegression.regression(withPoints: [CGPoint(x: 0, y: 0)], degree: 1)
+        XCTAssertEqual(regression, nil)
+    }
 }
