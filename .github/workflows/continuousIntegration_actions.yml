@@ -35,3 +35,6 @@ jobs:
       with:
         report_paths: '**/build/reports/junit.xml'
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        fail_on_failure: true
+
+
