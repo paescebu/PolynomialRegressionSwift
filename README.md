@@ -1,9 +1,9 @@
-# iOS-Polynomial-Regression
+# PolynomialRegressionSwift
 Swift function for calculation the polynomial regression of a given dataset.
 
 This is a fork of the https://github.com/KingIsulgard/iOS-Polynomial-Regression repository, just converted to Swift.
 
-You have to give an array of Double for the x values and y values and the desired order of polynomial you would like to aquire. The function will return an Array containing the polynomial coefficients. 
+You have to give an array of CGPoint and the desired order of polynomial you would like to aquire. The function will return an Array containing the polynomial coefficients. 
 
 ## Overview
 * [Features](#features)
@@ -19,33 +19,22 @@ You have to give an array of Double for the x values and y values and the desire
 
 ## Example
 
-    let xValues:[Double] = [
-        0,
-        9,
-        13,
-        15,
-        19,
-        20,
-        26,
-        26,
-        29,
-        30
-    ]
-    let yValues:[Double] = [
-        1,
-        -7,
-        6,
-        12,
-        -4,
-        -12,
-        -2,
-        13,
-        23,
-        30
+    let points:[CGPoint] = [
+        CGPoint(x: 0, y: 1),
+        CGPoint(x: 9, y: -7),
+        CGPoint(x: 13, y: 6),
+        CGPoint(x: 15, y: 12),
+        CGPoint(x: 19, y: -4),
+        CGPoint(x: 20, y: -12),
+        CGPoint(x: 26, y: -2),
+        CGPoint(x: 26, y: 13),
+        CGPoint(x: 29, y: 23),
+        CGPoint(x: 30, y: 30),
     ]
 
-    let regression = PolynomialRegression.regression(withXValues: xValues, yValues: yValues, degree: 6)
 
+    let regression = PolynomialRegression.regression(withPoints: points, degree: 6)
+    
     print("The result is the sum of")
     for i in 0..<regression!.count {
         let coefficient = regression![i]
