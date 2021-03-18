@@ -24,17 +24,6 @@ class PolynomialRegressionTests: XCTestCase {
         CGPoint(x: 30, y: 30),
     ]
     
-    func testPolynomial6thtOrder() {
-        let regression = PolynomialRegression.regression(withPoints: points, degree: 6)
-        XCTAssertEqual(regression![0], 1.011300320206601)
-        XCTAssertEqual(regression![1], -23.964675682766202)
-        XCTAssertEqual(regression![2], 4.546635485744847)
-        XCTAssertEqual(regression![3], -0.23683080116609886)
-        XCTAssertEqual(regression![4], -0.0005811674529158227)
-        XCTAssertEqual(regression![5], 0.0003090669456971004)
-        XCTAssertEqual(regression![6], -5.474209344783135e-06)
-    }
-    
     func testPolynomial5thtOrder() {
         let regression = PolynomialRegression.regression(withPoints: points, degree: 5)
         XCTAssertEqual(regression![0], 1.0177157900097882)
