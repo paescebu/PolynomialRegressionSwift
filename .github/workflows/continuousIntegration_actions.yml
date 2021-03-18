@@ -9,12 +9,6 @@ on:
       - develop
       - feature/*
 
-  pull_request:
-    branches:
-      - master
-      - develop
-      - feature/*
-
 jobs:
   test:
     name: Complete Test Suite
