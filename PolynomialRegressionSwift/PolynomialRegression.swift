@@ -19,7 +19,7 @@ public class PolynomialRegression {
             return nil
         }
 
-        var z = Matrix<Double>(rows: points.count, columns: degree+1)
+        var z = PRMatrix(rows: points.count, columns: degree+1)
         
         for i in 0..<points.count {
             for j in 0...degree {
@@ -28,7 +28,7 @@ public class PolynomialRegression {
             }
         }
         
-        var y = Matrix<Double>(rows: points.count, columns: 1)
+        var y = PRMatrix(rows: points.count, columns: 1)
 
         for u in 0..<points.count {
             y.setValue(atRow: u, andColumn: 0, value: Double(points[u].y))
@@ -50,10 +50,10 @@ public class PolynomialRegression {
         return result
     }
     
-    private static func solve(forleftMatrix: Matrix<Double>, andrightMatrix: Matrix<Double>) -> Matrix<Double>? {
+    private static func solve(forleftMatrix: PRMatrix, andrightMatrix: PRMatrix) -> PRMatrix? {
         let l = forleftMatrix
         var r = andrightMatrix
-        var resultMatrix = Matrix<Double>(rows: l.rows, columns: 1)
+        var resultMatrix = PRMatrix(rows: l.rows, columns: 1)
 
         let resDecomp = self.decompose(l: l)
 
@@ -64,7 +64,7 @@ public class PolynomialRegression {
         for k in 0..<(r.rows) {
             var sum = 0.0
 
-            var dMatrix = Matrix<Double>(rows: l.rows, columns: 1)
+            var dMatrix = PRMatrix(rows: l.rows, columns: 1)
 
             let val1 = r.value(atRow: Int(nP.value(atRow: 0, andColumn: 0)), andColumn: k)
             let val2 = lMatrix.value(atRow: 0, andColumn: 0)
@@ -98,13 +98,13 @@ public class PolynomialRegression {
         return resultMatrix
     }
     
-    private static func decompose(l: Matrix<Double>) -> [Matrix<Double>] {
-        var uMatrix = Matrix<Double>(rows: 1, columns: 1)
-        var lMatrix = Matrix<Double>(rows: 1, columns: 1)
+    private static func decompose(l: PRMatrix) -> [PRMatrix] {
+        var uMatrix = PRMatrix(rows: 1, columns: 1)
+        var lMatrix = PRMatrix(rows: 1, columns: 1)
         var workingUMatrix = l
-        var workingLMatrix = Matrix<Double>(rows: 1, columns: 1)
+        var workingLMatrix = PRMatrix(rows: 1, columns: 1)
 
-        var pivotArray = Matrix<Double>(rows: l.rows, columns: 1)
+        var pivotArray = PRMatrix(rows: l.rows, columns: 1)
 
         for i in 0..<l.rows {
             pivotArray.setValue(atRow: i, andColumn: 0, value: Double(i))
@@ -178,7 +178,7 @@ public class PolynomialRegression {
             }
         }
 
-        var result: [Matrix<Double>] = []
+        var result: [PRMatrix] = []
         result.append(uMatrix)
         result.append(lMatrix)
         result.append(pivotArray)
