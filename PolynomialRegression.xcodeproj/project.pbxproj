@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		59B6DD452603E26A006F5FD5 /* PRMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B6DD442603E26A006F5FD5 /* PRMatrixTests.swift */; };
+		59B6DD452603E26A006F5FD5 /* PRMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B6DD442603E26A006F5FD5 /* PRMatrixTests.swift */; settings = {COMPILER_FLAGS = "-Wconversion"; }; };
 		59E2824825FE7256004397FB /* PolynomialRegression.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E2823F25FE7255004397FB /* PolynomialRegression.framework */; };
-		59E2824D25FE7256004397FB /* PolynomialRegressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E2824C25FE7256004397FB /* PolynomialRegressionTests.swift */; };
+		59E2824D25FE7256004397FB /* PolynomialRegressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E2824C25FE7256004397FB /* PolynomialRegressionTests.swift */; settings = {COMPILER_FLAGS = "-Wconversion"; }; };
 		59E2824F25FE7256004397FB /* PolynomialRegression.h in Headers */ = {isa = PBXBuildFile; fileRef = 59E2824125FE7255004397FB /* PolynomialRegression.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		59E2825825FE7263004397FB /* PRMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E281E525FE58AD004397FB /* PRMatrix.swift */; };
-		59E2825B25FE7265004397FB /* PolynomialRegression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E281E925FE58BD004397FB /* PolynomialRegression.swift */; };
+		59E2825825FE7263004397FB /* PRMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E281E525FE58AD004397FB /* PRMatrix.swift */; settings = {COMPILER_FLAGS = "-Wconversion"; }; };
+		59E2825B25FE7265004397FB /* PolynomialRegression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E281E925FE58BD004397FB /* PolynomialRegression.swift */; settings = {COMPILER_FLAGS = "-Wconversion"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */

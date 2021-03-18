@@ -10,7 +10,7 @@ import Foundation
 
 
 public class PolynomialRegression {
-    public static func regression(withPoints points: [CGPoint], degree: Int) -> [Double]? {
+    public static func regression(withPoints points: [(x:Double, y:Double)], degree: Int) -> [Double]? {
         guard degree > 0 else {
             return nil
         }
@@ -23,7 +23,7 @@ public class PolynomialRegression {
         
         for i in 0..<points.count {
             for j in 0...degree {
-                let val = pow(Double(points[i].x), Double(j))
+                let val = pow(points[i].x, Double(j))
                 z.setValue(atRow: i, andColumn: j, value: val)
             }
         }
@@ -31,7 +31,7 @@ public class PolynomialRegression {
         var y = PRMatrix(rows: points.count, columns: 1)
 
         for u in 0..<points.count {
-            y.setValue(atRow: u, andColumn: 0, value: Double(points[u].y))
+            y.setValue(atRow: u, andColumn: 0, value: points[u].y)
         }
 
         let zTransposed = z.transpose()
