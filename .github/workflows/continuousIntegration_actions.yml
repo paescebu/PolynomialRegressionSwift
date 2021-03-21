@@ -1,4 +1,4 @@
-name: Swift
+name: Continuous Run
 
 on:
   schedule:
@@ -13,16 +13,16 @@ jobs:
   test:
     name: Complete Test Suite
     runs-on: self-hosted
-    strategy:
-      matrix:
-        destination: ['platform=macOS,arch=arm64']
     steps:
-    - name: Checkout repo
+    - name: Set Required PATH Variable
+      run: |
+        echo "/usr/local/bin:$PATH" >> $GITHUB_PATH
+    - name: Checkout Repo
       uses: actions/checkout@v2
-    - name: Build and test PolynomialRegression Test Suite
+    - name: Build And Test PolynomialRegression Test Suite
       run: .github/workflows/RunCompleteUnitTestSuite.sh
       env:
-        destination: ${{ matrix.destination }}
+        destination: "platform=macOS,arch=arm64"
         LC_CTYPE: en_US.UTF-8
     - name: Publish Test Report
       uses: mikepenz/action-junit-report@v2
