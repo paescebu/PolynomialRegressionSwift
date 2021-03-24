@@ -53,16 +53,11 @@ struct PRMatrix {
      *
      * Set the value at a certain row and column
      */
-    public mutating func setValue(atRow m: Int, andColumn n: Int, value: Double) {
-        if m >= rows || n >= columns {
+    public mutating func setValue(atRow m: Int, andColumn n: Int, value: Double, expandIfOutsideMatrix: Bool = false) {
+        if m >= rows || n >= columns && expandIfOutsideMatrix {
             expand(toRows: m + 1, columns: n + 1)
         }
-        let positionIn1DMatrix = m*columns+n
-        if positionIn1DMatrix == singleDimMatrix.count {
-            singleDimMatrix.append(value)
-        } else {
-            singleDimMatrix[positionIn1DMatrix] = value
-        }
+        self[row: m, column: n] = value
     }
     
     /**
@@ -70,12 +65,35 @@ struct PRMatrix {
      *
      * Get the value at a certain row and column
      */
-    public mutating func value(atRow m: Int, andColumn n: Int) -> Double {
-        let positionIn1DMatrix = m*columns+n
-        if m >= rows || n >= columns {
+    public mutating func value(atRow m: Int, andColumn n: Int, expandIfOutsideMatrix: Bool = false) -> Double {
+        if (m >= rows || n >= columns) && expandIfOutsideMatrix {
             expand(toRows: m + 1, columns: n + 1)
         }
-        return singleDimMatrix[positionIn1DMatrix]
+        return self[row: m, column: n]
+    }
+    
+    public subscript(row m: Int, column n: Int) -> Double {
+        get {
+            let positionIn1DMatrix = m*columns+n
+            return singleDimMatrix[positionIn1DMatrix]
+        }
+        set(newValue) {
+            let positionIn1DMatrix = m*columns+n
+            if positionIn1DMatrix == singleDimMatrix.count {
+                singleDimMatrix.append(newValue)
+            } else {
+                singleDimMatrix[positionIn1DMatrix] = newValue
+            }
+        }
+    }
+    
+    public subscript(_ m: Int, _ n: Int) -> Double {
+        get {
+            self[row: m, column: n]
+        }
+        set(newValue) {
+            self[row: m, column: n] = newValue
+        }
     }
     
     /**

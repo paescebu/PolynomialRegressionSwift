@@ -24,25 +24,25 @@ public class PolynomialRegression {
         for i in 0..<points.count {
             for j in 0...degree {
                 let val = pow(Double(points[i].x), Double(j))
-                z.setValue(atRow: i, andColumn: j, value: val)
+                z.setValue(atRow: i, andColumn: j, value: val, expandIfOutsideMatrix: true)
             }
         }
         
         var y = PRMatrix(rows: points.count, columns: 1)
 
         for u in 0..<points.count {
-            y.setValue(atRow: u, andColumn: 0, value: Double(points[u].y))
+            y.setValue(atRow: u, andColumn: 0, value: Double(points[u].y), expandIfOutsideMatrix: true)
         }
 
         let zTransposed = z.transpose()
         let l = zTransposed * z
         let r = zTransposed * y
 
-        var regression = solve(forleftMatrix: l, andrightMatrix: r)
+        let regression = solve(forleftMatrix: l, andrightMatrix: r)
         var result: [Double] = []
         
         for i in 0...degree {
-            if let value = regression?.value(atRow: i, andColumn: 0) {
+            if let value = regression?[i, 0] {
                 result.append(value)
             }
         }
@@ -57,40 +57,41 @@ public class PolynomialRegression {
 
         let resDecomp = self.decompose(l: l)
 
-        var nP = resDecomp[2]
-        var lMatrix = resDecomp[1]
-        var uMatrix = resDecomp[0]
+        let nP = resDecomp[2]
+        let lMatrix = resDecomp[1]
+        let uMatrix = resDecomp[0]
 
         for k in 0..<(r.rows) {
             var sum = 0.0
 
             var dMatrix = PRMatrix(rows: l.rows, columns: 1)
 
-            let val1 = r.value(atRow: Int(nP.value(atRow: 0, andColumn: 0)), andColumn: k)
-            let val2 = lMatrix.value(atRow: 0, andColumn: 0)
-            dMatrix.setValue(atRow: 0, andColumn: 0, value: val1 / val2)
+            let val1 = r[Int(nP[0,0]), k]
+            let val2 = lMatrix[0, 0]
+            dMatrix[0, 0] = val1 / val2
 
             for i in 1..<(l.rows) {
                 sum = 0.0
                 for j in 0..<i {
-                    sum += lMatrix.value(atRow: i, andColumn: j) * dMatrix.value(atRow: j, andColumn: 0)
+                    sum += lMatrix[i, j] * dMatrix[j, 0]
                 }
 
-                var value = r.value(atRow: Int(nP.value(atRow: i, andColumn: 0)), andColumn: k)
+                var value = r.value(atRow: Int(nP[i, 0]), andColumn: k, expandIfOutsideMatrix: true)
                 value -= sum
-                value /= lMatrix.value(atRow: i, andColumn: i)
-                dMatrix.setValue(atRow: i, andColumn: 0, value: value)
+                value /= lMatrix[i, i]
+                dMatrix[i, 0] = value
             }
 
-            resultMatrix.setValue(atRow: ((l.rows) - 1), andColumn: k, value: dMatrix.value(atRow: ((l.rows) - 1), andColumn: 0))
+            resultMatrix[l.rows - 1, k] = dMatrix[l.rows - 1, 0]
 
             var i = ((l.rows) - 2)
             while i >= 0 {
                 sum = 0.0
                 for j in (i + 1)..<(l.rows) {
-                    sum += uMatrix.value(atRow: i, andColumn: j) * resultMatrix.value(atRow: j, andColumn: k)
+                    sum += uMatrix[i, j] * resultMatrix[j, k]
                 }
-                resultMatrix.setValue(atRow: i, andColumn: k, value: (dMatrix.value(atRow: i, andColumn: 0) - sum))
+                let value = (dMatrix[i, 0] - sum)
+                resultMatrix.setValue(atRow: i, andColumn: k, value: value, expandIfOutsideMatrix: true)
                 i -= 1
             }
         }
@@ -107,63 +108,66 @@ public class PolynomialRegression {
         var pivotArray = PRMatrix(rows: l.rows, columns: 1)
 
         for i in 0..<l.rows {
-            pivotArray.setValue(atRow: i, andColumn: 0, value: Double(i))
+            pivotArray[i, 0] = Double(i)
         }
         
         for i in 0..<l.rows {
             var maxRowRatio: Double = -2147483648
             var maxRow = -1
             var maxPosition = -1
+            let firstValueInRow = Int(pivotArray[i, 0])
 
             for j in i..<l.rows {
                 var rowSum = 0.0
 
                 for k in i..<l.rows {
-                    rowSum += Double(abs(workingUMatrix.value(atRow: Int(pivotArray.value(atRow: j, andColumn: 0)), andColumn: k)))
+                    let row = Int(pivotArray[j, 0])
+                    rowSum += Double(abs(workingUMatrix[row, k]))
                 }
 
-                let dCurrentRatio = Double(abs(workingUMatrix.value(atRow: Int(pivotArray.value(atRow: j, andColumn: 0)), andColumn: i))) / rowSum
-
+                let row = Int(pivotArray[j, 0])
+                let dCurrentRatio = Double(abs(workingUMatrix[row, i])) / rowSum
                 if dCurrentRatio > maxRowRatio {
-                    maxRowRatio = Double(Int(abs(workingUMatrix.value(atRow: Int(pivotArray.value(atRow: j, andColumn: 0)), andColumn: i)))) / rowSum
-                    maxRow = Int(pivotArray.value(atRow: j, andColumn: 0))
+                    maxRowRatio = abs(workingUMatrix[row, i]) / rowSum
+                    maxRow = Int(pivotArray[j, 0])
                     maxPosition = j
                 }
             }
 
-            if maxRow != Int(pivotArray.value(atRow: i, andColumn: 0)) {
-                let hold = pivotArray.value(atRow: i, andColumn: 0)
-                pivotArray.setValue(atRow: i, andColumn: 0, value: Double(maxRow))
-                pivotArray.setValue(atRow: maxPosition, andColumn: 0, value: hold)
+            if maxRow != firstValueInRow {
+                let hold = firstValueInRow
+                pivotArray[i, 0] = Double(maxRow)
+                pivotArray[maxPosition, 0] = Double(hold)
             }
 
-            var rowFirstElementValue = workingUMatrix.value(atRow: Int(pivotArray.value(atRow: i, andColumn: 0)), andColumn: i)
+            var rowFirstElementValue = workingUMatrix[firstValueInRow, i]
 
             for j in 0..<l.rows {
                 if j < i {
-                    workingUMatrix.setValue(atRow: Int(pivotArray.value(atRow: i, andColumn: 0)), andColumn: j, value: 0.0)
+                    workingUMatrix[firstValueInRow, j] = 0.0
                 } else if j == i {
-                    workingLMatrix.setValue(atRow: Int(pivotArray.value(atRow: i, andColumn: 0)), andColumn: j, value: rowFirstElementValue)
-                    workingUMatrix.setValue(atRow: Int(pivotArray.value(atRow: i, andColumn: 0)), andColumn: j, value: 1.0)
+                    workingLMatrix[firstValueInRow, j] = rowFirstElementValue
+                    workingUMatrix[firstValueInRow, j] = 1.0
                 } else {
-                    let tempValue = workingUMatrix.value(atRow: Int(pivotArray.value(atRow: i, andColumn: 0)), andColumn: j)
-                    workingUMatrix.setValue(atRow: Int(pivotArray.value(atRow: i, andColumn: 0)), andColumn: j, value: tempValue / rowFirstElementValue)
-                    workingLMatrix.setValue(atRow: Int(pivotArray.value(atRow: i, andColumn: 0)), andColumn: j, value: 0.0)
+                    let tempValue = workingUMatrix[firstValueInRow, j]
+                    workingUMatrix[firstValueInRow, j] = tempValue / rowFirstElementValue
+                    workingLMatrix.setValue(atRow: firstValueInRow, andColumn: j, value: 0.0, expandIfOutsideMatrix: true)
                 }
             }
             
             for k in (i + 1)..<l.rows {
-                rowFirstElementValue = workingUMatrix.value(atRow: Int(pivotArray.value(atRow: k, andColumn: 0)), andColumn: i)
+                let firstValueInRow = Int(pivotArray[k, 0])
+                rowFirstElementValue = workingUMatrix.value(atRow: firstValueInRow, andColumn: i)
                 for j in 0..<l.rows {
                     if j < i {
-                        workingUMatrix.setValue(atRow: Int(pivotArray.value(atRow: k, andColumn: 0)), andColumn: j, value: 0.0)
+                        workingUMatrix.setValue(atRow: firstValueInRow, andColumn: j, value: 0.0)
                     } else if j == i {
-                        workingLMatrix.setValue(atRow: Int(pivotArray.value(atRow: k, andColumn: 0)), andColumn: j, value: rowFirstElementValue)
-                        workingUMatrix.setValue(atRow: Int(pivotArray.value(atRow: k, andColumn: 0)), andColumn: j, value: 0.0)
+                        workingLMatrix.setValue(atRow: firstValueInRow, andColumn: j, value: rowFirstElementValue)
+                        workingUMatrix.setValue(atRow: firstValueInRow, andColumn: j, value: 0.0)
                     } else {
-                        let tempValue = workingUMatrix.value(atRow: Int(pivotArray.value(atRow: k, andColumn: 0)), andColumn: j)
-                        let tempValue2 = workingUMatrix.value(atRow: Int(pivotArray.value(atRow: i, andColumn: 0)), andColumn: j)
-                        workingUMatrix.setValue(atRow: Int(pivotArray.value(atRow: k, andColumn: 0)), andColumn: j, value: tempValue - (rowFirstElementValue * tempValue2))
+                        let tempValue = workingUMatrix[firstValueInRow, j]
+                        let tempValue2 = workingUMatrix[Int(pivotArray[i, 0]), j]
+                        workingUMatrix[firstValueInRow, j] = tempValue - rowFirstElementValue * tempValue2
                     }
                 }
             }
@@ -171,10 +175,11 @@ public class PolynomialRegression {
         
         for i in 0..<l.rows {
             for j in 0..<l.rows {
-                let uValue = workingUMatrix.value(atRow: Int(pivotArray.value(atRow: i, andColumn: 0)), andColumn: j)
-                let lValue = workingLMatrix.value(atRow: Int(pivotArray.value(atRow: i, andColumn: 0)), andColumn: j)
-                uMatrix.setValue(atRow: i, andColumn: j, value: uValue)
-                lMatrix.setValue(atRow: i, andColumn: j, value: lValue)
+                let firstValueInRow = Int(pivotArray[i, 0])
+                let uValue = workingUMatrix[firstValueInRow, j]
+                let lValue = workingLMatrix[firstValueInRow, j]
+                uMatrix.setValue(atRow: i, andColumn: j, value: uValue, expandIfOutsideMatrix: true)
+                lMatrix.setValue(atRow: i, andColumn: j, value: lValue, expandIfOutsideMatrix: true)
             }
         }
 
