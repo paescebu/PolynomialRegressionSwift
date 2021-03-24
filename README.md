@@ -12,10 +12,10 @@ You have to give an array of CGPoint and the desired order of polynomial you wou
 * [Warranty](#warranty)
 
 ## Features
+- **Uses Apple's Accelerate framework, for increased performance on Matrix operations**
 - Can calculate any degree of polynomial
-- Easy to implement
-- Very compact, one line usage
-- Also contains a custom matrix class for this project which handles doubles
+- Easy to use
+- Also contains a custom matrix class which allows to transpose a mtrix or multiply two matrices
 
 ## Example
 
