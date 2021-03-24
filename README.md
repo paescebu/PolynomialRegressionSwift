@@ -54,7 +54,7 @@ The result is the sum of
 ```
 
 ## Implementation
-Implementation is easy. Just add the classes to your project and import 'PolynomialRegression'.
+Implementation is easy. Just add the framwork or classes to your project and import 'PolynomialRegression'.
 
 You're welcome to use it in commercial, closed-source, open source, free or any other kind of software, as long as you credit me appropriately and share any improvements to the code.
 
