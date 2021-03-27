@@ -3,7 +3,7 @@ Swift function for calculation the polynomial regression of a given dataset.
 
 This is a fork of the https://github.com/KingIsulgard/iOS-Polynomial-Regression repository, just converted to Swift.
 
-You have to give an array of CGPoint and the desired order of polynomial you would like to aquire. The function will return an Array containing the polynomial coefficients. 
+You have to give an array of CGPoint and the desired degree of polynomial you would like to aquire. The function will return an Array containing the polynomial coefficients. 
 
 ## Overview
 * [Features](#features)
@@ -16,6 +16,7 @@ You have to give an array of CGPoint and the desired order of polynomial you wou
 - Can calculate any degree of polynomial
 - Easy to use
 - Also contains a custom matrix class which allows to transpose a matrix or multiply two matrices
+- runs on iOS and macOS
 
 ## Example
 
@@ -56,7 +57,7 @@ The result is the sum of
 ## Implementation
 Implementation is easy. Just add the framwork or classes to your project and import 'PolynomialRegression'.
 
-You're welcome to use it in commercial, closed-source, open source, free or any other kind of software, as long as you credit me appropriately and share any improvements to the code.
+You're welcome to use it in commercial, closed-source, open source, free or any other kind of software, as long as you credit me and the original Author appropriately and share any improvements to the code.
 
 ## Warranty
 The code comes with no warranty of any kind. I hope it'll be useful to you (it certainly is to me), but I make no guarantees regarding its functionality or otherwise.
