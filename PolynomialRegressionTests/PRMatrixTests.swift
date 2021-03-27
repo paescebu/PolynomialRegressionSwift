@@ -14,10 +14,10 @@ class PRMatrixTests: XCTestCase {
         // 1 2
         // 3 4
         var matrix = PRMatrix(rows: 2, columns: 2)
-        matrix.setValue(atRow: 0, andColumn: 0, value: 1)
-        matrix.setValue(atRow: 0, andColumn: 1, value: 2)
-        matrix.setValue(atRow: 1, andColumn: 0, value: 3)
-        matrix.setValue(atRow: 1, andColumn: 1, value: 4)
+        matrix[0,0] = 1
+        matrix[0,1] = 2
+        matrix[1,0] = 3
+        matrix[1,1] = 4
         
         //expand by one per row and column
         // 1 2 0
@@ -41,12 +41,12 @@ class PRMatrixTests: XCTestCase {
         // 3 4
         // 5 6
         var matrix = PRMatrix(rows: 3, columns: 2)
-        matrix.setValue(atRow: 0, andColumn: 0, value: 1)
-        matrix.setValue(atRow: 0, andColumn: 1, value: 2)
-        matrix.setValue(atRow: 1, andColumn: 0, value: 3)
-        matrix.setValue(atRow: 1, andColumn: 1, value: 4)
-        matrix.setValue(atRow: 2, andColumn: 0, value: 5)
-        matrix.setValue(atRow: 2, andColumn: 1, value: 6)
+        matrix[0,0] = 1
+        matrix[0,1] = 2
+        matrix[1,0] = 3
+        matrix[1,1] = 4
+        matrix[2,0] = 5
+        matrix[2,1] = 6
 
         matrix = matrix.transpose()
                 
@@ -62,12 +62,12 @@ class PRMatrixTests: XCTestCase {
         // 3 4
         // 5 6
         var matrix = PRMatrix(rows: 3, columns: 2)
-        matrix.setValue(atRow: 0, andColumn: 0, value: 1)
-        matrix.setValue(atRow: 0, andColumn: 1, value: 2)
-        matrix.setValue(atRow: 1, andColumn: 0, value: 3)
-        matrix.setValue(atRow: 1, andColumn: 1, value: 4)
-        matrix.setValue(atRow: 2, andColumn: 0, value: 5)
-        matrix.setValue(atRow: 2, andColumn: 1, value: 6)
+        matrix[0,0] = 1
+        matrix[0,1] = 2
+        matrix[1,0] = 3
+        matrix[1,1] = 4
+        matrix[2,0] = 5
+        matrix[2,1] = 6
         
         XCTAssertEqual(matrix.singleDimMatrix, [1.0, 2.0, 3.0, 4.0, 5.0, 6.0])
     }
@@ -77,24 +77,24 @@ class PRMatrixTests: XCTestCase {
         // 3 4
         // 5 6
         var A = PRMatrix(rows: 3, columns: 2)
-        A.setValue(atRow: 0, andColumn: 0, value: 1)
-        A.setValue(atRow: 0, andColumn: 1, value: 2)
-        A.setValue(atRow: 1, andColumn: 0, value: 3)
-        A.setValue(atRow: 1, andColumn: 1, value: 4)
-        A.setValue(atRow: 2, andColumn: 0, value: 5)
-        A.setValue(atRow: 2, andColumn: 1, value: 6)
+        A[0,0] = 1
+        A[0,1] = 2
+        A[1,0] = 3
+        A[1,1] = 4
+        A[2,0] = 5
+        A[2,1] = 6
         
         // 5 3 2 6
         // 2 7 3 6
         var B = PRMatrix(rows: 2, columns: 4)
-        B.setValue(atRow: 0, andColumn: 0, value: 5)
-        B.setValue(atRow: 0, andColumn: 1, value: 3)
-        B.setValue(atRow: 0, andColumn: 2, value: 2)
-        B.setValue(atRow: 0, andColumn: 3, value: 6)
-        B.setValue(atRow: 1, andColumn: 0, value: 2)
-        B.setValue(atRow: 1, andColumn: 1, value: 7)
-        B.setValue(atRow: 1, andColumn: 2, value: 3)
-        B.setValue(atRow: 1, andColumn: 3, value: 6)
+        B[0,0] = 5
+        B[0,1] = 3
+        B[0,2] = 2
+        B[0,3] = 6
+        B[1,0] = 2
+        B[1,1] = 7
+        B[1,2] = 3
+        B[1,3] = 6
         
         let C = A * B
         //  9 17  8 18

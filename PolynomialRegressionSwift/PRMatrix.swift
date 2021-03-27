@@ -47,30 +47,6 @@ struct PRMatrix {
             self.columns = n
         }
     }
-
-    /**
-     * Matrix setvalue
-     *
-     * Set the value at a certain row and column
-     */
-    public mutating func setValue(atRow m: Int, andColumn n: Int, value: Double, expandIfOutsideMatrix: Bool = false) {
-        if m >= rows || n >= columns && expandIfOutsideMatrix {
-            expand(toRows: m + 1, columns: n + 1)
-        }
-        self[row: m, column: n] = value
-    }
-    
-    /**
-     * Matrix getvalue
-     *
-     * Get the value at a certain row and column
-     */
-    public mutating func value(atRow m: Int, andColumn n: Int, expandIfOutsideMatrix: Bool = false) -> Double {
-        if (m >= rows || n >= columns) && expandIfOutsideMatrix {
-            expand(toRows: m + 1, columns: n + 1)
-        }
-        return self[row: m, column: n]
-    }
     
     public subscript(row m: Int, column n: Int) -> Double {
         get {
@@ -93,6 +69,16 @@ struct PRMatrix {
         }
         set(newValue) {
             self[row: m, column: n] = newValue
+        }
+    }
+    
+    public func printMatrix() {
+        for row in 0..<self.rows {
+            var rowString: String = ""
+            for column in 0..<columns {
+                rowString.append(" \(self[row,column])")
+            }
+            print(rowString)
         }
     }
     
