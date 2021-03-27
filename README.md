@@ -1,5 +1,5 @@
 # PolynomialRegressionSwift
-Swift function for calculation the polynomial regression of a given dataset.
+Swift function for calculation of the polynomial regression of a given set of points in a 2D coordinate system.
 
 This is a fork of the https://github.com/KingIsulgard/iOS-Polynomial-Regression repository, just converted to Swift.
 
@@ -12,7 +12,7 @@ You have to give an array of CGPoint and the desired degree of polynomial you wo
 * [Warranty](#warranty)
 
 ## Features
-- **Uses Apple's Accelerate framework on Matrix operations and solving of linear systems for increased performance **
+- **Uses Apple's Accelerate framework on Matrix operations and solving of linear systems for increased performance**
 - Can calculate any degree of polynomial
 - Easy to use
 - Also contains a custom matrix class which allows to transpose a matrix or multiply two matrices
