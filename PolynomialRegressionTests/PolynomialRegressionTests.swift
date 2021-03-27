@@ -11,7 +11,7 @@ import XCTest
 
 class PolynomialRegressionTests: XCTestCase {
 
-    let epsilon = 1e-09
+    let epsilon = 1e-08
     
     let points:[CGPoint] = [
         CGPoint(x: 0, y: 1),
