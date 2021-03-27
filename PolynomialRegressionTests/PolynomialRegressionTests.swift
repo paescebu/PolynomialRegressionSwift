@@ -102,6 +102,4 @@ class PolynomialRegressionTests: XCTestCase {
         regression = PolynomialRegression.regression(withPoints: [CGPoint(x: 0, y: 0)], degree: 1)
         XCTAssertEqual(regression, nil)
     }
-    
-    
 }
