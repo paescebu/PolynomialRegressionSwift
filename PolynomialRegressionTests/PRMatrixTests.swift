@@ -24,7 +24,7 @@ class PRMatrixTests: XCTestCase {
         // 3 4 0
         // 0 0 0
         matrix.expand(toRows: 3, columns: 3)
-        XCTAssertEqual(matrix.singleDimMatrix, [1.0, 2.0, 0.0, 3.0, 4.0, 0.0, 0.0, 0.0, 0.0])
+        XCTAssertEqual(matrix.asVector, [1.0, 2.0, 0.0, 3.0, 4.0, 0.0, 0.0, 0.0, 0.0])
         
         //expand by two per row and column
         // 1 2 0 0 0
@@ -33,7 +33,7 @@ class PRMatrixTests: XCTestCase {
         // 0 0 0 0 0
         // 0 0 0 0 0
         matrix.expand(toRows: 5, columns: 5)
-        XCTAssertEqual(matrix.singleDimMatrix, [1.0, 2.0, 0.0, 0.0, 0.0, 3.0, 4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+        XCTAssertEqual(matrix.asVector, [1.0, 2.0, 0.0, 0.0, 0.0, 3.0, 4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
     }
     
     public func testTranspose() {
@@ -54,7 +54,7 @@ class PRMatrixTests: XCTestCase {
         // 2 4 6
         XCTAssertEqual(matrix.rows, 2)
         XCTAssertEqual(matrix.columns, 3)
-        XCTAssertEqual(matrix.singleDimMatrix, [1.0, 3.0, 5.0, 2.0, 4.0, 6.0])
+        XCTAssertEqual(matrix.asVector, [1.0, 3.0, 5.0, 2.0, 4.0, 6.0])
     }
     
     public func testInitMatrix() {
@@ -69,7 +69,7 @@ class PRMatrixTests: XCTestCase {
         matrix[2,0] = 5
         matrix[2,1] = 6
         
-        XCTAssertEqual(matrix.singleDimMatrix, [1.0, 2.0, 3.0, 4.0, 5.0, 6.0])
+        XCTAssertEqual(matrix.asVector, [1.0, 2.0, 3.0, 4.0, 5.0, 6.0])
     }
     
     public func testMatrixMultiplication() {
@@ -102,6 +102,6 @@ class PRMatrixTests: XCTestCase {
         // 37 57 28 66
         XCTAssertEqual(C.rows, 3)
         XCTAssertEqual(C.columns, 4)
-        XCTAssertEqual(C.singleDimMatrix, [9.0, 17.0, 8.0, 18.0, 23.0, 37.0, 18.0, 42.0, 37.0, 57.0, 28.0, 66.0])
+        XCTAssertEqual(C.asVector, [9.0, 17.0, 8.0, 18.0, 23.0, 37.0, 18.0, 42.0, 37.0, 57.0, 28.0, 66.0])
     }
 }

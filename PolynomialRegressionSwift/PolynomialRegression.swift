@@ -19,17 +19,17 @@ public class PolynomialRegression {
             return nil
         }
 
-        let A = createAMatrixBased(onDegree: degree, columns: degree, withPoints: points)
-        let b = createBVectorBased(onDegree: degree, withPoints: points)
+        let A = createAMatrix(basedOnDegree: degree, columns: degree, withPoints: points)
+        let b = createBVector(basedOnDegree: degree, withPoints: points)
         
         var coefficients:[Double] = []
         
         do {
             //solve A x = b
-            coefficients = try solveLinearSystem(a: A.singleDimMatrix,
+            coefficients = try solveLinearSystem(a: A.asVector,
                                   a_rowCount: A.rows,
                                   a_columnCount: A.columns,
-                                  b: b.singleDimMatrix,
+                                  b: b.asVector,
                                   b_count: b.rows)
         } catch {
             fatalError("Unable to solve linear system.")
@@ -38,7 +38,7 @@ public class PolynomialRegression {
         return coefficients
     }
     
-    static func createAMatrixBased(onDegree degree: Int, columns: Int, withPoints points: [CGPoint]) -> PRMatrix {
+    static func createAMatrix(basedOnDegree degree: Int, columns: Int, withPoints points: [CGPoint]) -> PRMatrix {
         //create A Matrix
         var A = PRMatrix(rows: degree+1, columns: degree+1)
         
@@ -57,7 +57,7 @@ public class PolynomialRegression {
         return A
     }
     
-    static func createBVectorBased(onDegree degree: Int, withPoints points: [CGPoint]) -> PRMatrix {
+    static func createBVector(basedOnDegree degree: Int, withPoints points: [CGPoint]) -> PRMatrix {
         //create b Vector
         var b = PRMatrix(rows: degree+1, columns: 1)
         

@@ -16,7 +16,7 @@ import Accelerate
 struct PRMatrix {
     public var rows: Int
     public var columns: Int
-    public var singleDimMatrix: [Double] = []
+    public var asVector: [Double] = []
     
     /**
      * Matrix init
@@ -26,7 +26,7 @@ struct PRMatrix {
     internal init(rows m: Int, columns n: Int) {
         self.rows = m
         self.columns = n
-        singleDimMatrix = Array.init(repeating: 0, count: m*n)
+        asVector = Array.init(repeating: 0, count: m*n)
     }
     
     /**
@@ -37,12 +37,12 @@ struct PRMatrix {
     
     public mutating func expand(toRows m: Int, columns n:Int) {
         if rows < m {
-            singleDimMatrix.append(contentsOf: Array.init(repeating: 0, count: columns*(m - rows)))
+            asVector.append(contentsOf: Array.init(repeating: 0, count: columns*(m - rows)))
             self.rows = m
         }
         if columns < n {
             for row in (1...rows).reversed() {
-                singleDimMatrix.insert(contentsOf: Array.init(repeating: 0, count: (n-columns)), at: row*columns)
+                asVector.insert(contentsOf: Array.init(repeating: 0, count: (n-columns)), at: row*columns)
             }
             self.columns = n
         }
@@ -51,14 +51,14 @@ struct PRMatrix {
     public subscript(row m: Int, column n: Int) -> Double {
         get {
             let positionIn1DMatrix = m*columns+n
-            return singleDimMatrix[positionIn1DMatrix]
+            return asVector[positionIn1DMatrix]
         }
         set(newValue) {
             let positionIn1DMatrix = m*columns+n
-            if positionIn1DMatrix == singleDimMatrix.count {
-                singleDimMatrix.append(newValue)
+            if positionIn1DMatrix == asVector.count {
+                asVector.append(newValue)
             } else {
-                singleDimMatrix[positionIn1DMatrix] = newValue
+                asVector[positionIn1DMatrix] = newValue
             }
         }
     }
@@ -98,13 +98,13 @@ struct PRMatrix {
      */
     public mutating func transpose() -> PRMatrix {
         var result = PRMatrix(rows: self.columns, columns: self.rows)
-        var C = result.singleDimMatrix
+        var C = result.asVector
         let aStride = vDSP_Stride(1)
         let cStride = vDSP_Stride(1)
         let mLength = vDSP_Length(rows)
         let nLength = vDSP_Length(columns)
-        vDSP_mtransD(self.singleDimMatrix, aStride, &C, cStride, nLength, mLength)
-        result.singleDimMatrix = C
+        vDSP_mtransD(self.asVector, aStride, &C, cStride, nLength, mLength)
+        result.asVector = C
         return result
     }
     
@@ -122,10 +122,10 @@ struct PRMatrix {
     public static func *(left: PRMatrix, right: PRMatrix) -> PRMatrix {
         assert(left.columns == right.rows, "There should be as many columns in matrix A (this matrix) as there are rows in matrix B (parameter matrix) to multiply. Matrix A has %lu columns and matrix B has %lu rows. left matrix colums: \(left.columns), right matrix rows\(right.rows)")
         
-        let A = left.singleDimMatrix
-        let B = right.singleDimMatrix
+        let A = left.asVector
+        let B = right.asVector
         var result = PRMatrix(rows: left.rows, columns: right.columns)
-        var C = result.singleDimMatrix
+        var C = result.asVector
         
         let aStride = vDSP_Stride(1)
         let bStride = vDSP_Stride(1)
@@ -139,7 +139,7 @@ struct PRMatrix {
             vDSP_Length(result.columns),
             vDSP_Length(right.rows)
         )
-        result.singleDimMatrix = C
+        result.asVector = C
         return result
     }
 }
