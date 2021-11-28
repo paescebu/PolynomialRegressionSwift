@@ -10,7 +10,7 @@ import Foundation
 import Accelerate
 
 public class PolynomialRegression {
-    public static func regression(withPoints points: [CGPoint], degree: Int) -> [Double]? {
+    public static func regression(withPoints points: [CGPoint], degree: Int) -> [Float]? {
         guard degree > 0 else {
             return nil
         }
@@ -22,19 +22,13 @@ public class PolynomialRegression {
         let A = createAMatrix(basedOnDegree: degree, columns: degree, withPoints: points)
         let b = createBVector(basedOnDegree: degree, withPoints: points)
         
-        var coefficients:[Double] = []
+        var coefficients:[Float] = []
         
-        do {
-            //solve A x = b
-            coefficients = try solveLinearSystem(a: A.asVector,
-                                  a_rowCount: A.rows,
-                                  a_columnCount: A.columns,
-                                  b: b.asVector,
-                                  b_count: b.rows)
-        } catch {
-            fatalError("Unable to solve linear system.")
-        }
-                
+        //solve A x = b
+        coefficients = leastSquares_nonsquare(
+            a: A.asVector,
+            dimension: (A.rows, A.columns),
+            b: b.asVector) ?? []
         return coefficients
     }
     
@@ -45,9 +39,9 @@ public class PolynomialRegression {
         var skip = 0
         for Arow in 0..<A.rows {
             for Acolumn in 0..<A.columns {
-                var sum: Double = 0
+                var sum: Float = 0
                 for point in points {
-                    sum += pow(Double(point.x), Double(skip + Acolumn))
+                    sum += pow(Float(point.x), Float(skip + Acolumn))
                 }
                 A[Arow,Acolumn] = sum
             }
@@ -62,27 +56,12 @@ public class PolynomialRegression {
         var b = PRMatrix(rows: degree+1, columns: 1)
         
         for bRow in 0..<b.rows {
-            var sum:Double = 0
+            var sum:Float = 0
             for point in points {
-                sum +=  pow(Double(point.x), Double(bRow))  * Double(point.y)
+                sum +=  pow(Float(point.x), Float(bRow))  * Float(point.y)
             }
             b[bRow,0] = sum
         }
         return b
-    }
-    
-    //solve A x = b
-    static func solveLinearSystem(a: [Double],
-                                  a_rowCount: Int, a_columnCount: Int,
-                                  b: [Double],
-                                  b_count: Int) throws -> [Double] {
-        
-        let matA = la_matrix_from_double_buffer(a, la_count_t(a_rowCount), la_count_t(a.count/a_rowCount), la_count_t(a_rowCount), la_hint_t(LA_NO_HINT), la_attribute_t(LA_DEFAULT_ATTRIBUTES))
-        let vecB = la_matrix_from_double_buffer(b, la_count_t(b_count), 1, 1, la_hint_t(LA_NO_HINT), la_attribute_t(LA_DEFAULT_ATTRIBUTES))
-        let vecX = la_solve(matA, vecB)
-        var x: [Double] = Array(repeating: 0.0, count: b_count)
-        la_matrix_to_double_buffer(&x, 1, vecX)
-        
-        return x
     }
 }
