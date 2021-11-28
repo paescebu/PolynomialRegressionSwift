@@ -57,7 +57,6 @@ func leastSquares_nonsquare(a: [Float],
     /// Call `cblas_sgemv` to create _Aᵀb_.
     var atb = [Float](unsafeUninitializedCapacity: dimension.n) {
         buffer, initializedCount in
-        
         cblas_sgemv(CblasColMajor, CblasTrans,
                     m,
                     n,

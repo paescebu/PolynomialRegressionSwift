@@ -25,7 +25,7 @@ func symmetric_indefinite_general(a: [Float],
                                   dimension: Int,
                                   b: [Float],
                                   rightHandSideCount: Int) -> [Float]? {
-    
+
     /// Create mutable copies of the parameters
     /// to pass to the LAPACK routine.
     var uplo = Int8("U".utf8.first!)
@@ -38,9 +38,9 @@ func symmetric_indefinite_general(a: [Float],
     /// Create a mutable copy of `a` to pass to the LAPACK routine. The routine overwrites `mutableA`
     /// with the block diagonal matrix `D` and the multipliers that obtain the factor `U`.
     var mutableA = a
-    
+
     var ipiv = [__CLPK_integer](repeating: 0, count: dimension)
-    
+
     /// Create a mutable copy of `a` to pass to the LAPACK routine. The routine overwrites `mutableA`
     /// with the block diagonal matrix `D` and the multipliers that obtain the factor `U`.
     mutableA = a
@@ -49,25 +49,25 @@ func symmetric_indefinite_general(a: [Float],
     var ldb = n
     work = __CLPK_real(0)
     lwork = __CLPK_integer(-1)
-    
+
     /// Pass `lwork = -1` to `ssysv_` to perform a workspace query that calculates the
     /// optimal size of the `work` array.
     ssysv_(&uplo, &n, &nrhs, &mutableA, &lda, &ipiv,
            &x, &ldb, &work, &lwork, &info)
-    
+
     lwork = __CLPK_integer(work)
-    
+
     /// Call `ssysv_` to compute the solution.
     _ = [__CLPK_real](unsafeUninitializedCapacity: Int(lwork)) {
         workspaceBuffer, workspaceInitializedCount in
-        
+
         ssysv_(&uplo, &n, &nrhs, &mutableA, &lda, &ipiv, &x, &ldb,
                workspaceBuffer.baseAddress,
                &lwork, &info)
-        
+
         workspaceInitializedCount = Int(lwork)
     }
-    
+
     if info != 0 {
         NSLog("symmetric_indefinite_general error \(info)")
         return nil
