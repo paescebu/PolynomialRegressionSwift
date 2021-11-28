@@ -72,17 +72,67 @@ public class PolynomialRegression {
     }
     
     //solve A x = b
+    //Source: https://developer.apple.com/documentation/accelerate/finding_an_interpolating_polynomial_using_the_vandermonde_method
     static func solveLinearSystem(a: [Double],
                                   a_rowCount: Int, a_columnCount: Int,
                                   b: [Double],
                                   b_count: Int) throws -> [Double] {
         
-        let matA = la_matrix_from_double_buffer(a, la_count_t(a_rowCount), la_count_t(a.count/a_rowCount), la_count_t(a_rowCount), la_hint_t(LA_NO_HINT), la_attribute_t(LA_DEFAULT_ATTRIBUTES))
-        let vecB = la_matrix_from_double_buffer(b, la_count_t(b_count), 1, 1, la_hint_t(LA_NO_HINT), la_attribute_t(LA_DEFAULT_ATTRIBUTES))
-        let vecX = la_solve(matA, vecB)
-        var x: [Double] = Array(repeating: 0.0, count: b_count)
-        la_matrix_to_double_buffer(&x, 1, vecX)
+        var a = a
+        var b = b
         
-        return x
+        var info = Int32(0)
+        
+        // 1: Specify transpose.
+        var trans = Int8("T".utf8.first!)
+        
+        // 2: Define constants.
+        var m = __CLPK_integer(a_rowCount)
+        var n = __CLPK_integer(a_columnCount)
+        var lda = __CLPK_integer(a_rowCount)
+        var nrhs = __CLPK_integer(1) // assumes `b` is a column matrix
+        var ldb = __CLPK_integer(b_count)
+        
+        // 3: Workspace query.
+        var workDimension = Double(0)
+        var minusOne = Int32(-1)
+        
+        dgels_(&trans, &m, &n,
+               &nrhs,
+               &a, &lda,
+               &b, &ldb,
+               &workDimension, &minusOne,
+               &info)
+        
+        if info != 0 {
+            throw LAPACKError.internalError
+        }
+        
+        // 4: Create workspace.
+        var lwork = Int32(workDimension)
+        var workspace = [Double](repeating: 0,
+                                 count: Int(workDimension))
+        
+        // 5: Solve linear system.
+        dgels_(&trans, &m, &n,
+               &nrhs,
+               &a, &lda,
+               &b, &ldb,
+               &workspace, &lwork,
+               &info)
+        
+        if info < 0 {
+            throw LAPACKError.parameterHasIllegalValue(parameterIndex: abs(Int(info)))
+        } else if info > 0 {
+            throw LAPACKError.diagonalElementOfTriangularFactorIsZero(index: Int(info))
+        }
+
+        return b
+    }
+
+    public enum LAPACKError: Swift.Error {
+        case internalError
+        case parameterHasIllegalValue(parameterIndex: Int)
+        case diagonalElementOfTriangularFactorIsZero(index: Int)
     }
 }
