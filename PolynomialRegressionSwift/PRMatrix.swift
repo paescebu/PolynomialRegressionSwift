@@ -11,12 +11,12 @@ import Accelerate
 
 
 /**
- * Matrix for Single Floating Point Precision
+ * Matrix for Double Precision
  */
 struct PRMatrix {
     public var rows: Int
     public var columns: Int
-    public var asVector: [Float] = []
+    public var asVector: [Double] = []
     
     /**
      * Matrix init
@@ -48,7 +48,7 @@ struct PRMatrix {
         }
     }
     
-    public subscript(row m: Int, column n: Int) -> Float {
+    public subscript(row m: Int, column n: Int) -> Double {
         get {
             let positionIn1DMatrix = m*columns+n
             return asVector[positionIn1DMatrix]
@@ -63,7 +63,7 @@ struct PRMatrix {
         }
     }
     
-    public subscript(_ m: Int, _ n: Int) -> Float {
+    public subscript(_ m: Int, _ n: Int) -> Double {
         get {
             self[row: m, column: n]
         }
@@ -103,7 +103,7 @@ struct PRMatrix {
         let cStride = vDSP_Stride(1)
         let mLength = vDSP_Length(rows)
         let nLength = vDSP_Length(columns)
-        vDSP_mtrans(self.asVector, aStride, &C, cStride, nLength, mLength)
+        vDSP_mtransD(self.asVector, aStride, &C, cStride, nLength, mLength)
         result.asVector = C
         return result
     }
@@ -131,7 +131,7 @@ struct PRMatrix {
         let bStride = vDSP_Stride(1)
         let cStride = vDSP_Stride(1)
 
-        vDSP_mmul(
+        vDSP_mmulD(
             A, aStride,
             B, bStride,
             &C, cStride,

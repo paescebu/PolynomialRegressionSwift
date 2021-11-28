@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		590A07972753D7850040B635 /* symmetric_indefinite_general.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590A07942753D7850040B635 /* symmetric_indefinite_general.swift */; };
-		590A07982753D7850040B635 /* leastSquares_nonsquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590A07952753D7850040B635 /* leastSquares_nonsquare.swift */; };
-		590A07992753D7850040B635 /* isPositiveDefinite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590A07962753D7850040B635 /* isPositiveDefinite.swift */; };
 		59B6DD452603E26A006F5FD5 /* PRMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B6DD442603E26A006F5FD5 /* PRMatrixTests.swift */; };
 		59E2824825FE7256004397FB /* PolynomialRegression.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E2823F25FE7255004397FB /* PolynomialRegression.framework */; };
 		59E2824D25FE7256004397FB /* PolynomialRegressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E2824C25FE7256004397FB /* PolynomialRegressionTests.swift */; };
@@ -29,9 +26,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		590A07942753D7850040B635 /* symmetric_indefinite_general.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = symmetric_indefinite_general.swift; sourceTree = "<group>"; };
-		590A07952753D7850040B635 /* leastSquares_nonsquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = leastSquares_nonsquare.swift; sourceTree = "<group>"; };
-		590A07962753D7850040B635 /* isPositiveDefinite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = isPositiveDefinite.swift; sourceTree = "<group>"; };
 		59B6DD442603E26A006F5FD5 /* PRMatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRMatrixTests.swift; sourceTree = "<group>"; };
 		59E281E525FE58AD004397FB /* PRMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRMatrix.swift; sourceTree = "<group>"; };
 		59E281E925FE58BD004397FB /* PolynomialRegression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialRegression.swift; sourceTree = "<group>"; };
@@ -62,16 +56,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		590A07932753D7850040B635 /* Accelerate-Linear-Solvers */ = {
-			isa = PBXGroup;
-			children = (
-				590A07942753D7850040B635 /* symmetric_indefinite_general.swift */,
-				590A07952753D7850040B635 /* leastSquares_nonsquare.swift */,
-				590A07962753D7850040B635 /* isPositiveDefinite.swift */,
-			);
-			path = "Accelerate-Linear-Solvers";
-			sourceTree = "<group>";
-		};
 		59E281E425FE588F004397FB /* PolynomialRegressionSwift */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,7 +87,6 @@
 		CA8020011AB9B746007CDF96 = {
 			isa = PBXGroup;
 			children = (
-				590A07932753D7850040B635 /* Accelerate-Linear-Solvers */,
 				59E281E425FE588F004397FB /* PolynomialRegressionSwift */,
 				59E2824025FE7255004397FB /* PolynomialRegression */,
 				59E2824B25FE7256004397FB /* PolynomialRegressionTests */,
@@ -234,11 +217,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				590A07972753D7850040B635 /* symmetric_indefinite_general.swift in Sources */,
 				59E2825B25FE7265004397FB /* PolynomialRegression.swift in Sources */,
-				590A07992753D7850040B635 /* isPositiveDefinite.swift in Sources */,
 				59E2825825FE7263004397FB /* PRMatrix.swift in Sources */,
-				590A07982753D7850040B635 /* leastSquares_nonsquare.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
