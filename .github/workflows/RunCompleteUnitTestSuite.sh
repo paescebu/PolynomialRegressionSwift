@@ -11,10 +11,10 @@ set -o pipefail
 
 #try to build Unit Test Target and fail on failure
 echo "Just trying to build"
-arch -arm64 /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project PolynomialRegression.xcodeproj -scheme PolynomialRegression -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty
+arch -arm64 swift build
 
 #Run Unit Test but dont fail on failure so that results can be parsed for github
 set +ex
 set +o pipefail
 echo "Running Unit Tests"
-arch -arm64 /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild clean test -project PolynomialRegression.xcodeproj -scheme PolynomialRegression -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty -r junit
+arch -arm64 /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild clean test -scheme PolynomialRegressionSwift -destination "${destination}" | xcpretty -r junit

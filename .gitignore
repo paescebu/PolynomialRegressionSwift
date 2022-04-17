@@ -1,1 +1,9 @@
-PolynomialRegression.xcodeproj/project.xcworkspace/xcuserdata/pascalburlet.xcuserdatad/UserInterfaceState.xcuserstate
+.DS_Store
+/.build
+/Packages
+/*.xcodeproj
+xcuserdata/
+DerivedData/
+.swiftpm/config/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.netrc

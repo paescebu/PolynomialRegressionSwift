@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import PolynomialRegression
+@testable import PolynomialRegressionSwift
 
 class PRMatrixTests: XCTestCase {
     public func testExpansion() {
