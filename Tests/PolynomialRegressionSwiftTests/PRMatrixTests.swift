@@ -104,4 +104,35 @@ class PRMatrixTests: XCTestCase {
         XCTAssertEqual(C.columns, 4)
         XCTAssertEqual(C.asVector, [9.0, 17.0, 8.0, 18.0, 23.0, 37.0, 18.0, 42.0, 37.0, 57.0, 28.0, 66.0])
     }
+    
+    func testSubscript() {
+        // 1 2
+        // 3 4
+        // 5 6
+        var A = PRMatrix(rows: 3, columns: 2)
+        A[0,0] = 1
+        A[0,1] = 2
+        A[1,0] = 3
+        A[1,1] = 4
+        A[2,0] = 5
+        A[2,1] = 6
+        
+        //Adding new row, so
+        // 1 2
+        // 3 4
+        // 5 6
+        // 7 8
+        A[3,0] = 7
+        A[3,1] = 8
+        
+        
+        XCTAssertEqual(A[0,0], 1)
+        XCTAssertEqual(A[0,1], 2)
+        XCTAssertEqual(A[1,0], 3)
+        XCTAssertEqual(A[1,1], 4)
+        XCTAssertEqual(A[2,0], 5)
+        XCTAssertEqual(A[2,1], 6)
+        XCTAssertEqual(A[3,0], 7)
+        XCTAssertEqual(A[3,1], 8)
+    }
 }

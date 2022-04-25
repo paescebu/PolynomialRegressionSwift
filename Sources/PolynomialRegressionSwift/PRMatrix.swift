@@ -72,16 +72,6 @@ struct PRMatrix {
         }
     }
     
-    public func printMatrix() {
-        for row in 0..<self.rows {
-            var rowString: String = ""
-            for column in 0..<columns {
-                rowString.append(" \(self[row,column])")
-            }
-            print(rowString)
-        }
-    }
-    
     /**
      * Matrix transpose
      * Result is a new matrix created by transposing this current matrix

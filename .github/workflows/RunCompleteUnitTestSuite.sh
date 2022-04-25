@@ -17,4 +17,5 @@ arch -arm64 swift build
 set +ex
 set +o pipefail
 echo "Running Unit Tests"
-arch -arm64 /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild clean test -scheme PolynomialRegressionSwift -destination "${destination}" | xcpretty -r junit
+
+arch -arm64 /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -scheme PolynomialRegressionSwift -destination "platform=iOS Simulator,name=iPhone 12" -enableCodeCoverage YES -derivedDataPath "derivedData" clean test | xcpretty -r junit

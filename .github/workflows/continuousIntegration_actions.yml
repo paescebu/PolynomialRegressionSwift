@@ -31,5 +31,15 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         fail_on_failure: true
         require_tests: true
-
+    - name: Create Code Coverage Report
+      run: |
+        ./.github/workflows/xcov/ExportCodeCoverage.sh
+      env:
+        LC_CTYPE: en_US.UTF-8
+    - name: Publish Code Coverage Report
+      uses: actions/upload-artifact@v2
+      with:
+        name: CodeCoverage
+        path: '**/build/xcov_output/*'
+        retention-days: 89
 
