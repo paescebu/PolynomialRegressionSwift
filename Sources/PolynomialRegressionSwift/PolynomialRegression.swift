@@ -11,13 +11,8 @@ import Accelerate
 
 public class PolynomialRegression {
     public static func regression(withPoints points: [CGPoint], degree: Int) -> [Double]? {
-        guard degree > 0 else {
-            return nil
-        }
-        
-        guard points.count > 1 else {
-            return nil
-        }
+        guard degree > 0 else { return nil }
+        guard points.count > 1 else { return nil }
 
         let A = createAMatrix(basedOnDegree: degree, columns: degree, withPoints: points)
         let b = createBVector(basedOnDegree: degree, withPoints: points)
