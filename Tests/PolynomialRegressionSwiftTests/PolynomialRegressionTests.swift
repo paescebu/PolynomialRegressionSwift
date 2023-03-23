@@ -97,4 +97,10 @@ class PolynomialRegressionTests: XCTestCase {
         regression = PolynomialRegression.regression(withPoints: [CGPoint(x: 0, y: 0)], degree: 1)
         XCTAssertEqual(regression, nil)
     }
+	
+	func testPolynomialRegressionSumOfSquares(){
+		let regression = PolynomialRegression.regression(withPoints: points, degree: 3)
+		let sumOfSquare = PolynomialRegression.calculateResidualSumOfSquares(ofPoints: points, withCoefficients: regression!)
+		XCTAssertEqual(sumOfSquare, 551.0158144934717)
+	}
 }
