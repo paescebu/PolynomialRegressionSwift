@@ -137,14 +137,16 @@ public class PolynomialRegression {
 		guard coefficients.count > 1 else {
 			return nil
 		}
-		
-		let yPolynomialResults = vDSP.evaluatePolynomial(usingCoefficients: coefficients.reversed(), withVariables: points.map { Double($0.x) } )
+				
+		let xValuesOfPoints = points.map { Double($0.x) }
 		let yValuesOfPoints = points.map { $0.y }
-
+				
+		let yPolynomialResults = vDSP.evaluatePolynomial(usingCoefficients: coefficients.reversed(), withVariables: xValuesOfPoints )
+		
 		var sumOfSquares: Double = 0
 		
-		for (px, y) in zip(yPolynomialResults, yValuesOfPoints) {
-			sumOfSquares += Double(pow(px - y, 2))
+		for (yPoly, yPoint) in zip(yPolynomialResults, yValuesOfPoints) {
+			sumOfSquares += Double(pow(yPoly - yPoint, 2))
 		}
 		
 		return sumOfSquares
