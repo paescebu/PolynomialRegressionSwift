@@ -129,7 +129,7 @@ public class PolynomialRegression {
         return b
     }
 	
-	static func calculateResidualSumOfSquares(ofPoints points: [CGPoint], withCoefficients coefficients: [Double]) -> Double? {
+	public static func calculateResidualSumOfSquares(ofPoints points: [CGPoint], withCoefficients coefficients: [Double]) -> Double? {
 		guard points.count > 1 else {
 			return nil
 		}
