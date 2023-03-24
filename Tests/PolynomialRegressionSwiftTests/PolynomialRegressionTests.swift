@@ -101,6 +101,22 @@ class PolynomialRegressionTests: XCTestCase {
 	func testPolynomialRegressionSumOfSquares(){
 		let regression = PolynomialRegression.regression(withPoints: points, degree: 3)
 		let sumOfSquare = PolynomialRegression.calculateResidualSumOfSquares(ofPoints: points, withCoefficients: regression!)
-		XCTAssertEqual(sumOfSquare, 551.0158144934717)
+		XCTAssertEqual(sumOfSquare!, 551.0158144934717)
+	}
+	
+	func testPolynomialRegressionSumOfSquaresFails(){
+		let regression = PolynomialRegression.regression(withPoints: points, degree: 3)
+		
+		var sumOfSquare = PolynomialRegression.calculateResidualSumOfSquares(ofPoints: [], withCoefficients: regression!)
+		XCTAssertEqual(sumOfSquare, nil)
+
+		sumOfSquare = PolynomialRegression.calculateResidualSumOfSquares(ofPoints: points, withCoefficients: [])
+		XCTAssertEqual(sumOfSquare, nil)
+		
+		sumOfSquare = PolynomialRegression.calculateResidualSumOfSquares(ofPoints: [CGPoint(x: 0, y: 0)], withCoefficients: regression!)
+		XCTAssertEqual(sumOfSquare, nil)
+		
+		sumOfSquare = PolynomialRegression.calculateResidualSumOfSquares(ofPoints: [], withCoefficients: [])
+		XCTAssertEqual(sumOfSquare, nil)
 	}
 }

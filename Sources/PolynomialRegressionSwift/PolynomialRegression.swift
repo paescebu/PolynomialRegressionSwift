@@ -129,7 +129,14 @@ public class PolynomialRegression {
         return b
     }
 	
-	static func calculateResidualSumOfSquares(ofPoints points: [CGPoint], withCoefficients coefficients: [Double]) -> Double{
+	static func calculateResidualSumOfSquares(ofPoints points: [CGPoint], withCoefficients coefficients: [Double]) -> Double? {
+		guard points.count > 1 else {
+			return nil
+		}
+		
+		guard coefficients.count > 1 else {
+			return nil
+		}
 		
 		let yPolynomialResults = vDSP.evaluatePolynomial(usingCoefficients: coefficients.reversed(), withVariables: points.map { Double($0.x) } )
 		let yValuesOfPoints = points.map { $0.y }
