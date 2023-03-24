@@ -128,6 +128,27 @@ public class PolynomialRegression {
 
         return b
     }
+	
+	static func calculateResidualSumOfSquares(ofPoints points: [CGPoint], withCoefficients coefficients: [Double]) -> Double? {
+		guard points.count > 1 else {
+			return nil
+		}
+		
+		guard coefficients.count > 1 else {
+			return nil
+		}
+		
+		let yPolynomialResults = vDSP.evaluatePolynomial(usingCoefficients: coefficients.reversed(), withVariables: points.map { Double($0.x) } )
+		let yValuesOfPoints = points.map { $0.y }
+
+		var sumOfSquares: Double = 0
+		
+		for (px, y) in zip(yPolynomialResults, yValuesOfPoints) {
+			sumOfSquares += Double(pow(px - y, 2))
+		}
+		
+		return sumOfSquares
+	}
 
     public enum LAPACKError: Swift.Error {
         case internalError
