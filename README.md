@@ -61,3 +61,9 @@ You're welcome to use it in commercial, closed-source, open source, free or any 
 
 ## Warranty
 The code comes with no warranty of any kind. I hope it'll be useful to you (it certainly is to me), but I make no guarantees regarding its functionality or otherwise.
+
+## Donations
+
+You really don't have to pay anything to use this package. But if you feel generous today and would like to donate because this package helped you so much, here's a PayPal donation link: https://www.paypal.com/donate/?hosted_button_id=JYL8DBGA2X4YQ
+
+or just buy me a hot chocolate: https://www.buymeacoffee.com/paescebu
