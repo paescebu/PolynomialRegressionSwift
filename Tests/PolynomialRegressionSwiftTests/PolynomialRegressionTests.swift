@@ -38,13 +38,13 @@ class PolynomialRegressionTests: XCTestCase {
     
     func testPolynomial6thtOrder() {
         let regression = PolynomialRegression.regression(withPoints: points, degree: 6)
-        XCTAssertEqual(regression![0], 1.0113408375997626)
-        XCTAssertEqual(regression![1], -24.00251085070317)
-        XCTAssertEqual(regression![2], 4.558007347944319)
-        XCTAssertEqual(regression![3], -0.23812712711865547)
-        XCTAssertEqual(regression![4], -0.0005106883553711002)
-        XCTAssertEqual(regression![5], 0.00030722936386030377)
-        XCTAssertEqual(regression![6], -5.4557347736579514e-06)
+        XCTAssertEqual(regression![0], 1.0113408375997563)
+        XCTAssertEqual(regression![1], -24.002510850695437)
+        XCTAssertEqual(regression![2], 4.558007347941993)
+        XCTAssertEqual(regression![3], -0.2381271271183899)
+        XCTAssertEqual(regression![4], -0.0005106883553849162)
+        XCTAssertEqual(regression![5], 0.0003072293638632067)
+        XCTAssertEqual(regression![6], -5.455734773653819e-06)
     }
         
     func testPolynomial5thtOrder() {
@@ -76,9 +76,9 @@ class PolynomialRegressionTests: XCTestCase {
     
     func testPolynomial2ndOrderQuadratic() {
         let regression = PolynomialRegression.regression(withPoints: points, degree: 2)
-        XCTAssertEqual(regression![0], 3.9758682949038366)
-        XCTAssertEqual(regression![1], -1.4996371619443858)
-        XCTAssertEqual(regression![2], 0.06945564017892344)
+        XCTAssertEqual(regression![0], 3.975868294903853)
+        XCTAssertEqual(regression![1], -1.4996371619443891)
+        XCTAssertEqual(regression![2], 0.06945564017892343)
     }
     
     func testPolynomial1stOrderLinear() {
@@ -101,7 +101,7 @@ class PolynomialRegressionTests: XCTestCase {
 	func testPolynomialRegressionSumOfSquares(){
 		let regression = PolynomialRegression.regression(withPoints: points, degree: 3)
 		let sumOfSquare = PolynomialRegression.calculateResidualSumOfSquares(ofPoints: points, withCoefficients: regression!)
-		XCTAssertEqual(sumOfSquare!, 551.0158144934717)
+		XCTAssertEqual(sumOfSquare!, 551.0158144934722)
 	}
 	
 	func testPolynomialRegressionSumOfSquaresFails(){

@@ -18,4 +18,4 @@ set +ex
 set +o pipefail
 echo "Running Unit Tests"
 
-xcodebuild -scheme PolynomialRegressionSwift -destination "platform=iOS Simulator,name=iPhone 12" -enableCodeCoverage YES -derivedDataPath "derivedData" clean test | xcpretty -r junit
+xcodebuild -scheme PolynomialRegressionSwift -destination "platform=iOS Simulator,name=iPhone 14" -enableCodeCoverage YES -derivedDataPath "derivedData" clean test | xcpretty -r junit
