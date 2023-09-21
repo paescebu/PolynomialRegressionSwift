@@ -9,7 +9,6 @@
 import Foundation
 import Accelerate
 
-
 /**
  * Matrix for Double Precision
  */
