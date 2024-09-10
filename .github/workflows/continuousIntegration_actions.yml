@@ -37,7 +37,8 @@ jobs:
       env:
         LC_CTYPE: en_US.UTF-8
     - name: Publish Code Coverage Report
-      uses: actions/upload-artifact@v2
+      if: '!cancelled()'
+      uses: actions/upload-artifact@v4
       with:
         name: CodeCoverage
         path: '**/build/xcov_output/*'
